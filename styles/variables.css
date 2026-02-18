@@ -27,10 +27,17 @@
   --background-logo: #fff;
   --background-card: #fff;
   --background-button: #fff;
+  --contour-color: #000;
+  --animation-fill-color: rgb(255 0 0);
   --header-inline-size: clamp(23.4375rem, 0rem + 100vw, 44rem);
   --header-block-size: clamp(20.4375rem, 17.2318rem + 13.6778vw, 23.25rem);
   --main-inline-size: clamp(23.4375rem, 0rem + 100vw, 43.75rem);
   --main-padding-top: clamp(6.25rem, 6.4663rem + -0.9231vw, 6.0625rem);
   --dialog-inline-size: clamp(21.3125rem, 20.4576rem + 3.6474vw, 22.0625rem);
-  --image-block-size: clamp(23.1875rem, -0.3212rem + 100.304vw, 43.8125rem);
+  --image-block-size: clamp(23.5rem, 0.3475rem + 98.7842vw, 43.8125rem);
+  --save-button-inline-size: clamp(
+    19.125rem,
+    17.0591rem + 8.8146vw,
+    20.9375rem
+  );
 }
