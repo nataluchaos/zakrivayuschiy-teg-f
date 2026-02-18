@@ -165,7 +165,7 @@
   justify-content: end;
   align-items: center;
   padding-inline-end: 25px;
-  gap: 7px;
+  gap: 6px;
 }
 
 .card__icon-button {
@@ -189,7 +189,6 @@
   block-size: 38px;
   inline-size: 130px;
   border: 2px solid #000;
-  padding: 9px 17px;
   background-color: var(--background-button);
   box-shadow: none;
   transition: box-shadow 0.3s ease;
@@ -252,10 +251,10 @@
 }
 
 .popup__floppy {
-  position: relative;
+  /*position: relative;*/
   inline-size: 39px;
   block-size: 39px;
-  mix-blend-mode: difference;
+  /*mix-blend-mode: difference;*/
 }
 
 .popup__save-text {
