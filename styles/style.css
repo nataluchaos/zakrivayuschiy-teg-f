@@ -4,13 +4,216 @@
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
 
 .page {
-  min-inline-size: 320px;
+  min-inline-size: 375px;
+  max-inline-size: 704px;
+  inline-size: var(--header-inline-size);
   min-block-size: 100dvb;
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+  background-image:
+    var(--background-vertical), var(--background-horizontal),
+    var(--background-linear);
+  font-family: var(--Inter-Variable-font, sans-serif);
+  font-variation-settings: "wght" var(--font-variation-weight-text);
+  font-size: var(--font-size-text);
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-block-size: var(--header-block-size);
+  margin-top: 98px;
+  background-color: var(--background-logo);
+  border: 2px solid #000;
+  font-family: var(--PressStart2P-font, sans-serif);
+  font-weight: var(--font-weight-text);
+  gap: 20px;
+
+  @media (width < 700px) {
+    margin-top: 100px;
+  }
+}
+
+.header__logo {
+  font-size: var(--font-size-logo);
+  text-align: center;
+  color: var(--font-color-title);
+  text-decoration-line: none;
+}
+
+.header__title {
+  font-size: var(--font-size-title);
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--font-color-title);
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  padding: 96px 0 100px;
+  gap: 50px;
+  margin: 0 auto;
+  max-inline-size: var(--main-inline-size);
+
+  @media (width <= 375px) {
+    padding-block-start: 100px;
+  }
+}
+
+.card {
+  border: 2px solid #000;
+  background-color: var(--background-card);
+  padding-block-end: 25px;
+}
+
+.card__title {
+  font-family: inherit;
+  font-variation-settings: "wght" var(--font-variation-weight-title);
+  font-size: 18px;
+  color: var(--font-color-title);
+  padding: 5px 10px 2px;
+  line-height: 120%;
+}
+
+.card__image-container {
+  position: relative;
+  block-size: var(--image-block-size);
+}
+
+.card__label {
+  position: absolute;
+  inset-inline-end: 24px;
+  inset-block-start: 28px;
+  font-family: var(--PressStart2P-font, sans-serif);
+  font-weight: var(--font-weight-text);
+  font-size: 14px;
+  text-transform: uppercase;
+  color: #000;
+  mix-blend-mode: hard-light;
+  opacity: 0.5;
+
+  @supports (
+    (text-stroke: 1px var(--font-color-text-stroke)) or
+      (-webkit-text-stroke: 1px var(--font-color-text-stroke))
+  ) {
+    -webkit-text-stroke: 1px var(--font-color-text-stroke);
+    text-stroke: 1px var(--font-color-text-stroke);
+    text-shadow: none;
+  }
+}
+
+.card__image {
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.card__image-clean {
+  filter: saturate(30%) brightness(150%) contrast(90%);
+}
+
+.card__image-doubt {
+  filter: saturate(350%);
+}
+
+.card__image-race {
+  filter: hue-rotate(75deg);
+}
+
+.card__description {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  padding: 25px 26px 25px;
+  font-family: inherit;
+  font-variation-settings: inherit;
+  font-size: 18px;
+  line-height: 117%;
+  color: var(--font-color-text);
+}
+
+.card__control {
+  display: flex;
+  justify-content: end;
+  padding-inline-end: 25px;
+}
+
+.card__icon-button {
+  block-size: 38px;
+  border: none;
+  background-color: transparent;
+}
+
+.card__like-button {
+  block-size: 38px;
+  inline-size: 130px;
+  border: 2px solid #000;
+  padding: 9px 17px;
+  background-color: var(--background-button);
+}
+
+.button__text {
+  font-family: var(--PressStart2P-font);
+  font-weight: var(--font-weight-text);
+  font-size: 14px;
+  line-height: 90%;
+  color: var(--font-color-text);
+}
+
+.main__save {
+  inline-size: 335px;
+  block-size: 55px;
+  border: 2px solid #000;
+}
+
+.popup__save[open] {
+  display: grid;
+  grid-template-columns: 59px 1fr;
+  align-content: space-between;
+  align-items: center;
+  max-inline-size: 353px;
+  min-inline-size: 341px;
+  inline-size: var(--dialog-inline-size);
+  block-size: 191px;
+  padding: 30px;
+
+  @media (width <= 375px) {
+    padding: 30px 40px;
+  }
+}
+
+.popup__floppy {
+  inline-size: 39px;
+  block-size: 39px;
+}
+
+.popup__save-text {
+  font-family: var(--PressStart2P-font, sans-serif);
+  font-weight: var(--font-weight-text);
+  font-size: 14px;
+  text-transform: uppercase;
+  line-height: 150%;
+}
+
+.popup__button {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  block-size: 38px;
+  border: 2px solid #000;
+  background-color: var(--background-button);
+}
+
+.popup__save[open]::backdrop {
+  background-color: rgb(0 0 0 / 0.75);
 }
