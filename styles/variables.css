@@ -9,6 +9,7 @@
   --font-color-text: #000;
   --font-color-title: #000;
   --font-color-text-stroke: #fff;
+  --font-color-text-button: #fff;
   --font-size-logo: clamp(3.0625rem, 1.9087rem + 4.9231vw, 4.0625rem);
   --font-size-title: clamp(0.875rem, 0.226rem + 2.7692vw, 1.4375rem);
   --font-size-text: 18px;

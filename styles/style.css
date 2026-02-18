@@ -128,7 +128,24 @@
 }
 
 .card__image-race {
-  filter: hue-rotate(75deg);
+  filter: hue-rotate(30deg);
+}
+
+.card__image-near {
+  filter: invert(0.7) contrast(150%);
+}
+
+.card__image-strategy {
+  filter: sepia(90%);
+}
+
+.card__image-despair {
+  filter: blur(0.3rem);
+}
+
+.card__image-now {
+  filter: hue-rotate(90deg) blur(0.15rem) brightness(150%) saturate(140%)
+    contrast(40%);
 }
 
 .card__description {
@@ -146,35 +163,76 @@
 .card__control {
   display: flex;
   justify-content: end;
+  align-items: center;
   padding-inline-end: 25px;
+  gap: 7px;
 }
 
 .card__icon-button {
-  block-size: 38px;
+  block-size: 34px;
   border: none;
   background-color: transparent;
+  padding: 0;
+  border-radius: 0%;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  outline: 2px solid #000;
 }
 
 .card__like-button {
+  position: relative;
   block-size: 38px;
   inline-size: 130px;
   border: 2px solid #000;
   padding: 9px 17px;
   background-color: var(--background-button);
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  padding: 0;
+}
+
+.card__like-button:focus {
+  outline: none;
+}
+
+.card__like-button:focus-visible {
+  box-shadow: 2px 2px #000;
 }
 
 .button__text {
+  position: relative;
+  z-index: 1;
   font-family: var(--PressStart2P-font);
   font-weight: var(--font-weight-text);
   font-size: 14px;
   line-height: 90%;
-  color: var(--font-color-text);
+  color: var(--font-color-text-button);
+  mix-blend-mode: difference;
 }
 
-.main__save {
+.main__save-button {
+  position: relative;
   inline-size: 335px;
   block-size: 55px;
   border: 2px solid #000;
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  padding: 0;
+}
+
+.main__save-button:focus {
+  outline: none;
+}
+
+.main__save-button:focus-visible {
+  box-shadow: 2px 2px #000;
 }
 
 .popup__save[open] {
@@ -194,8 +252,10 @@
 }
 
 .popup__floppy {
+  position: relative;
   inline-size: 39px;
   block-size: 39px;
+  mix-blend-mode: difference;
 }
 
 .popup__save-text {
@@ -207,11 +267,45 @@
 }
 
 .popup__button {
+  position: relative;
   grid-column-start: 1;
   grid-column-end: 3;
   block-size: 38px;
   border: 2px solid #000;
   background-color: var(--background-button);
+  box-shadow: none;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  padding: 0;
+}
+
+.popup__button:focus {
+  outline: none;
+}
+
+.popup__button:focus-visible {
+  box-shadow: 2px 2px #000;
+}
+
+.card__like-button::before,
+.main__save-button::before,
+.popup__button::before {
+  position: absolute;
+  inset-block-start: 0;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  transform: scale(0);
+  transition: transform 0.5s ease-in-out;
+  transform-origin: top left;
+}
+
+.card__like-button:hover::before,
+.main__save-button:hover::before,
+.popup__button:hover::before {
+  transform: scale(1);
 }
 
 .popup__save[open]::backdrop {
