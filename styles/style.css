@@ -166,16 +166,15 @@
 }
 
 .card__image-strategy {
-  filter: sepia(90%);
+  filter: sepia(90%) hue-rotate(90deg);
 }
 
 .card__image-despair {
-  filter: blur(0.3rem);
+  filter: blur(0.1rem);
 }
 
 .card__image-now {
-  filter: hue-rotate(90deg) blur(0.15rem) brightness(150%) saturate(140%)
-    contrast(40%);
+  filter: opacity() (0.8);
 }
 
 .card__description {
@@ -314,6 +313,20 @@
   mix-blend-mode: difference;
 }
 
+.button__floppy {
+  inline-size: 21px;
+  block-size: 21px;
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: difference;
+  fill: #fff;
+
+  @media (width <= 375px) {
+    inline-size: 28px;
+    block-size: 28px;
+  }
+}
+
 .main__save-button {
   position: relative;
   display: flex;
@@ -347,24 +360,12 @@
   box-shadow: 2px 2px #000;
 }
 
-.button__floppy {
-  inline-size: 21px;
-  block-size: 21px;
-  position: relative;
-  mix-blend-mode: difference;
-  fill: #fff;
-
-  @media (width <= 375px) {
-    inline-size: 28px;
-    block-size: 28px;
-  }
-}
-
 .popup__save[open] {
   display: grid;
   grid-template-columns: 59px 1fr;
-  grid-template-rows: 63px 38px;
   align-content: space-between;
+  align-items: center;
+
   max-inline-size: 353px;
   min-inline-size: 341px;
   inline-size: var(--dialog-inline-size);
@@ -376,9 +377,9 @@
   }
 }
 
-.popup__floppy[open] {
-  inline-size: 39px;
-  block-size: 39px;
+.popup__floppy {
+  width: 39px;
+  height: 39px;
   align-self: center;
 }
 
