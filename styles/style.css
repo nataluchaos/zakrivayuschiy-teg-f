@@ -63,7 +63,7 @@
   margin-top: 98px;
   background-color: var(--background-logo);
   border: 2px solid #000;
-  font-family: var(--PressStart2P-font, sans-serif);
+  font-family: var(--PressStart2P-font, fantasy);
   font-weight: var(--font-weight-text);
   gap: 20px;
 
@@ -131,6 +131,7 @@
   color: #000;
   mix-blend-mode: hard-light;
   opacity: 0.5;
+  text-shadow: 1px 1px var(--font-color-text-stroke);
 
   @supports (
     (text-stroke: 1px var(--font-color-text-stroke)) or
@@ -174,7 +175,7 @@
 }
 
 .card__image-now {
-  filter: opacity() (0.8);
+  filter: opacity(0.8);
 }
 
 .card__description {
@@ -215,17 +216,20 @@
   outline: 2px solid #000;
 }
 
-.card__like-button {
+.main__button {
   position: relative;
-  block-size: 38px;
-  inline-size: 130px;
-  border: 2px solid #000;
-  background-color: var(--background-button);
   box-shadow: none;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
   padding: 0;
   overflow: hidden;
+  border: 2px solid #000;
+  background-color: var(--background-button);
+}
+
+.card__like-button {
+  block-size: 38px;
+  inline-size: 130px;
 }
 
 .card__like-button:focus {
@@ -329,7 +333,6 @@
 }
 
 .main__save-button {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -338,12 +341,6 @@
   min-inline-size: 306px;
   inline-size: var(--save-button-inline-size);
   block-size: 55px;
-  border: 2px solid #000;
-  box-shadow: none;
-  transition: box-shadow 0.3s ease;
-  cursor: pointer;
-  padding: 0;
-  overflow: hidden;
 
   @media (width <= 375px) {
     display: grid;
@@ -364,14 +361,13 @@
 
 .popup__save[open] {
   display: grid;
+  row-gap: 30px;
   grid-template-columns: 59px 1fr;
   align-content: space-between;
   align-items: center;
-
   max-inline-size: 353px;
   min-inline-size: 341px;
   inline-size: var(--dialog-inline-size);
-  block-size: 191px;
   padding: 30px;
 
   @media (width <= 375px) {
@@ -393,18 +389,14 @@
   line-height: 150%;
 }
 
-.popup__button {
-  position: relative;
+.popup__button-form {
   grid-column-start: 1;
   grid-column-end: 3;
+}
+
+.popup__button {
   block-size: 38px;
-  border: 2px solid #000;
-  background-color: var(--background-button);
-  box-shadow: none;
-  transition: box-shadow 0.3s ease;
-  cursor: pointer;
-  padding: 0;
-  overflow: hidden;
+  inline-size: 100%;
 }
 
 .popup__button:focus {
@@ -415,9 +407,7 @@
   box-shadow: 2px 2px #000;
 }
 
-.card__like-button::before,
-.main__save-button::before,
-.popup__button::before {
+.main__button::before {
   position: absolute;
   inset-block-start: 0;
   content: "";
@@ -432,9 +422,7 @@
   transform-origin: left center;
 }
 
-.card__like-button:hover::before,
-.main__save-button:hover::before,
-.popup__button:hover::before {
+.main__button:hover::before {
   transform: translateX(0);
 }
 

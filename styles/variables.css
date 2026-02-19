@@ -40,4 +40,5 @@
     17.0591rem + 8.8146vw,
     20.9375rem
   );
+  --popup__button-inline-size: clamp(16rem, 13.7204rem + 9.7264vw, 18rem);
 }
